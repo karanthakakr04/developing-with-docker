@@ -1,0 +1,8 @@
+# Ignore development-specific files and directories
+.vscode/
+./app/node_modules/
+./app/package-lock.json
+
+# Ignore project-specific files
+docker_commands.md
+README.md

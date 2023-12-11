@@ -1,0 +1,27 @@
+version: '3' # Specifies the Docker Compose file format
+services:  # Defines the services (containers) in your application
+  # my-app:
+  #   image: 235505018116.dkr.ecr.us-east-1.amazonaws.com/my-app:1.1
+  #   ports:
+  #     - 3000:3000
+  mongodb:  # The service (container) name
+    image: mongo  # Specifies the Docker Image to use 
+    ports:  # Maps host port 27017 to container port 27017
+      - 27017:27017
+    environment:  # Sets environment variables for the container
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=password
+    volumes:
+      - mongo-data:/data/db    # host-volume-name:path-inside-the-container (path inside the container is provided by the documentation on DockerHub)
+  mongo-express:
+    image: mongo-express
+    ports:
+      - 8081:8081
+    environment:
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=password
+      - ME_CONFIG_MONGODB_SERVER=mongodb
+    restart: always  # This setting indicates that the container should be restarted automatically, no matter the reason for its exit.
+volumes:
+  mongo-data:
+    driver: local

@@ -10,8 +10,9 @@
   "author": "Karan Thakkar",
   "license": "ISC",
   "dependencies": {
-    "body-parser": "^1.20.2",
-    "express": "^4.18.2",
-    "mongodb": "^4.16.0"
+    "body-parser": "^1.20.0",
+    "developing-with-docker": "file:",
+    "express": "^4.21.0",
+    "mongodb": "^6.12.0"
   }
 }
